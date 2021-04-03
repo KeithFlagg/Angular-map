@@ -1,5 +1,5 @@
-//Keith Flagg
-//Full Stack Web Application
+# Keith Flagg
+## Full Stack Web Application
 
 ---Technologies---
 angularjs
