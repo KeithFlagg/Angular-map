@@ -1,0 +1,72 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<html>
+  <!--centers the header and colors background-->
+  <header style="background:#3a3a3a;text-align:center">
+    <br>
+      <b>Private School Locations</b>
+    <br>
+    <br>
+  </header>
+
+  <body>
+    <!--Angular js google map centered at my latitude and longitude-->
+    <agm-map [latitude] = "latitude" [longitude] = "longitude" [zoom]="3">
+      <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+      <!-- <agm-data-layer [geoJson]="geoJsonObject"></agm-data-layer> -->
+        <agm-marker 
+          *ngFor="let m of geoJsonObject.features"
+          [latitude]="m.geometry.coordinates[1]"
+          [longitude]="m.geometry.coordinates[0]"
+        >
+        <agm-info-window>
+          <strong>{{m.properties.NAME}}</strong>
+        </agm-info-window>
+        </agm-marker>
+      </agm-marker-cluster>
+    </agm-map>
+
+    <!--Submit button and filter-->
+    <form [formGroup] = "filterForm" (ngSubmit)="onSubmit()">
+      <input type = "text" name = "Search" placeholder = "Search" formControlName = "value">
+      <label for="column"><b>Filter:</b></label>
+      <select name="column" formControlName = "key">
+        <option value="NAME">School Name</option>
+        <option value="CITY">City</option>
+        <option value="STATE">State</option>
+      </select>
+      <input type = "submit">
+    </form>
+
+    <!--Table holding dataset values-->
+    <table>
+      <tr>
+        <th>School Name</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+      <tbody *ngFor = "let row of tableData">
+          <tr class = "school">
+            <td>
+              {{row.properties.NAME}}
+            </td>
+            <td>
+              {{row.properties.CITY}}
+            </td>
+            <td>
+              {{row.properties.STATE}}
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+  </body>
+
+</html>

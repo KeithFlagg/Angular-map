@@ -1,0 +1,36 @@
+agm-map{
+    height: 400px;
+}
+header{
+    margin-top: -10px;
+    margin-left: -10px; 
+    margin-right: -10px;
+    font-family:Geneva;
+    font-size: 30px;
+    color:white;
+}
+select{
+  margin-top: -20px;
+  margin-bottom: 0px; 
+  margin-right: 0px;
+
+}
+body {
+    background:linear-gradient(to right, #29c9f1 0%, #33f8ff 81%);
+    margin-top: -10px;
+    margin-left: -10px; 
+    margin-right: -10px;
+    margin-bottom: 500px
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
